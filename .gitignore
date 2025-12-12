@@ -1,0 +1,54 @@
+# Залежності
+node_modules/
+*/node_modules/
+
+# Логи
+*.log
+logs/
+*/logs/*.log
+
+# Змінні середовища
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Збірки
+build/
+dist/
+*/build/
+*/dist/
+
+# Кеш
+.cache/
+.parcel-cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Тестування
+coverage/
+.nyc_output/
+
+# Тимчасові файли
+*.tmp
+*.temp
+
+# База даних
+*.sqlite
+*.db
+
+# Uploads
+uploads/
+*/uploads/

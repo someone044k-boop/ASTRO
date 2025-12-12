@@ -1,0 +1,45 @@
+.video-block {
+  margin: 20px 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.video-content {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-caption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+}
+
+.video-block-error {
+  padding: 20px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+  text-align: center;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .video-block {
+    margin: 15px 0;
+  }
+  
+  .video-caption {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+}

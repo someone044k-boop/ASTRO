@@ -1,0 +1,108 @@
+.telegram-block {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+}
+
+.telegram-widget-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.telegram-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0088cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.telegram-loading p {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+}
+
+.telegram-channel-widget {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.telegram-info {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #dee2e6;
+}
+
+.telegram-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.telegram-link {
+  color: #0088cc;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 8px;
+  transition: color 0.3s ease;
+}
+
+.telegram-link:hover {
+  color: #006699;
+  text-decoration: underline;
+}
+
+.telegram-block-error {
+  padding: 20px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+  text-align: center;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .telegram-block {
+    margin: 15px 0;
+    padding: 15px;
+  }
+  
+  .telegram-loading {
+    height: 150px;
+  }
+  
+  .loading-spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+  
+  .telegram-info p {
+    font-size: 13px;
+  }
+}

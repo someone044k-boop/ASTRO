@@ -1,0 +1,62 @@
+.rich-text-renderer {
+  width: 100%;
+  max-width: 100%;
+}
+
+.rich-text-error {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  color: #6c757d;
+  text-align: center;
+  font-style: italic;
+}
+
+.rich-text-unknown-block {
+  padding: 15px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  color: #856404;
+  margin: 10px 0;
+}
+
+.rich-text-block {
+  margin-bottom: 20px;
+}
+
+.rich-text-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .rich-text-renderer {
+    padding: 0 10px;
+  }
+  
+  .rich-text-block {
+    margin-bottom: 15px;
+  }
+}
+
+/* Анімації для блоків */
+.rich-text-block {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.rich-text-block:nth-child(1) { animation-delay: 0.1s; }
+.rich-text-block:nth-child(2) { animation-delay: 0.2s; }
+.rich-text-block:nth-child(3) { animation-delay: 0.3s; }
+.rich-text-block:nth-child(4) { animation-delay: 0.4s; }
+.rich-text-block:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

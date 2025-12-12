@@ -1,0 +1,52 @@
+# Multi-stage build для production
+FROM node:18-alpine AS builder
+
+# Встановлення залежностей для збірки
+RUN apk add --no-cache python3 make g++
+
+WORKDIR /app
+
+# Копіювання package files
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Копіювання вихідного коду
+COPY . .
+
+# Збірка додатку
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine
+
+# Встановлення додаткових пакетів
+RUN apk add --no-cache curl
+
+# Копіювання збірки
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# Копіювання nginx конфігурації
+COPY nginx.prod.conf /etc/nginx/nginx.conf
+
+# Створення non-root користувача
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001
+
+# Налаштування прав доступу
+RUN chown -R nextjs:nodejs /usr/share/nginx/html && \
+    chown -R nextjs:nodejs /var/cache/nginx && \
+    chown -R nextjs:nodejs /var/log/nginx && \
+    chown -R nextjs:nodejs /etc/nginx/conf.d
+
+RUN touch /var/run/nginx.pid && \
+    chown -R nextjs:nodejs /var/run/nginx.pid
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:80/health || exit 1
+
+USER nextjs
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

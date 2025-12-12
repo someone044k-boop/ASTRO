@@ -1,0 +1,168 @@
+.hero-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin: 0 0 30px 0;
+  line-height: 1.5;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hero-actions {
+  margin-top: 30px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-button-primary {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.hero-button-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  color: white;
+}
+
+.hero-button-secondary {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.hero-button-secondary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.hero-button-outline {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.hero-button-outline:hover {
+  background-color: white;
+  color: #333;
+}
+
+/* Висоти героя */
+.hero-height-small {
+  min-height: 300px;
+}
+
+.hero-height-medium {
+  min-height: 500px;
+}
+
+.hero-height-large {
+  min-height: 700px;
+}
+
+.hero-height-full {
+  min-height: 100vh;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 30px 15px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+  
+  .hero-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .hero-height-small {
+    min-height: 250px;
+  }
+  
+  .hero-height-medium {
+    min-height: 400px;
+  }
+  
+  .hero-height-large {
+    min-height: 500px;
+  }
+  
+  .hero-height-full {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

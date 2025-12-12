@@ -1,0 +1,50 @@
+# Multi-stage build для production
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Копіювання package files
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Копіювання вихідного коду
+COPY . .
+
+# Збірка (якщо потрібно)
+RUN npm run build || echo "No build script found"
+
+# Production stage
+FROM node:18-alpine
+
+# Встановлення додаткових пакетів
+RUN apk add --no-cache \
+    curl \
+    dumb-init \
+    && rm -rf /var/cache/apk/*
+
+WORKDIR /app
+
+# Створення non-root користувача
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+# Копіювання з builder stage
+COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/src ./src
+COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
+
+# Створення необхідних директорій
+RUN mkdir -p /app/logs /app/uploads /app/backups && \
+    chown -R nodejs:nodejs /app
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:4000/health || exit 1
+
+USER nodejs
+
+EXPOSE 4000
+
+# Використання dumb-init для правильної обробки сигналів
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "src/server.js"]

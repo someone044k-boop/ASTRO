@@ -1,0 +1,132 @@
+.text-block {
+  padding: 15px 0;
+  line-height: 1.6;
+}
+
+.text-block p {
+  margin: 0 0 15px 0;
+}
+
+.text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.text-block h1,
+.text-block h2,
+.text-block h3,
+.text-block h4,
+.text-block h5,
+.text-block h6 {
+  margin: 20px 0 15px 0;
+  font-weight: 600;
+}
+
+.text-block h1:first-child,
+.text-block h2:first-child,
+.text-block h3:first-child,
+.text-block h4:first-child,
+.text-block h5:first-child,
+.text-block h6:first-child {
+  margin-top: 0;
+}
+
+.text-block ul,
+.text-block ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.text-block li {
+  margin-bottom: 8px;
+}
+
+.text-block blockquote {
+  margin: 20px 0;
+  padding: 15px 20px;
+  border-left: 4px solid #007bff;
+  background-color: #f8f9fa;
+  font-style: italic;
+}
+
+.text-block a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text-block a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.text-block strong,
+.text-block b {
+  font-weight: 600;
+}
+
+.text-block em,
+.text-block i {
+  font-style: italic;
+}
+
+.text-block code {
+  background-color: #f1f3f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.text-block pre {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.text-block pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Розміри шрифтів */
+.text-block-small {
+  font-size: 14px;
+}
+
+.text-block-medium {
+  font-size: 16px;
+}
+
+.text-block-large {
+  font-size: 18px;
+}
+
+.text-block-xl {
+  font-size: 24px;
+}
+
+.text-block-xxl {
+  font-size: 32px;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .text-block {
+    padding: 10px 0;
+  }
+  
+  .text-block-xl {
+    font-size: 20px;
+  }
+  
+  .text-block-xxl {
+    font-size: 26px;
+  }
+  
+  .text-block ul,
+  .text-block ol {
+    padding-left: 20px;
+  }
+}

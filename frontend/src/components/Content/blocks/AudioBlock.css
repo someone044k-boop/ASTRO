@@ -1,0 +1,57 @@
+.audio-block {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.audio-title {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.audio-container {
+  width: 100%;
+}
+
+.audio-content {
+  width: 100%;
+  height: 40px;
+}
+
+.audio-caption {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.audio-block-error {
+  padding: 20px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+  text-align: center;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .audio-block {
+    margin: 15px 0;
+    padding: 12px;
+  }
+  
+  .audio-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .audio-caption {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,1034 @@
+/* Загальні стилі для астрологічних компонентів */
+
+.natal-chart-form,
+.natal-chart-display,
+.zodiac-compatibility,
+.quick-zodiac-lookup,
+.saved-charts {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Форма натальної карти */
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.form-header p {
+  color: #718096;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.chart-form {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+/* Пошук локації */
+.location-search {
+  position: relative;
+}
+
+.location-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.location-suggestion {
+  padding: 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f7fafc;
+  transition: background-color 0.2s ease;
+}
+
+.location-suggestion:hover {
+  background: #f7fafc;
+}
+
+.location-suggestion:last-child {
+  border-bottom: none;
+}
+
+.location-suggestion strong {
+  display: block;
+  color: #2d3748;
+}
+
+.location-suggestion small {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+.coordinates-help {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: #edf2f7;
+  border-radius: 6px;
+}
+
+.coordinates-help small {
+  color: #4a5568;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Помилки форми */
+.form-errors {
+  background: #fed7d7;
+  border: 1px solid #feb2b2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #c53030;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-message:last-child {
+  margin-bottom: 0;
+}
+
+/* Дії форми */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Кнопки */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #5a67d8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+/* Спінер завантаження */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Відображення натальної карти */
+.chart-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.chart-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.info-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2d3748;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-card .value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Знаки зодіаку */
+.zodiac-sign {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #edf2f7;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.zodiac-symbol {
+  font-size: 1.2rem;
+}
+
+/* Планети */
+.planets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.planet-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.planet-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.planet-symbol {
+  font-size: 1.5rem;
+}
+
+.planet-name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.planet-position {
+  color: #4a5568;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.planet-meaning {
+  color: #718096;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Аспекти */
+.aspects-list {
+  background: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.aspect-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.aspect-item:last-child {
+  border-bottom: none;
+}
+
+.aspect-symbol {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.aspect-planets {
+  flex: 1;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.aspect-name {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .chart-info {
+    grid-template-columns: 1fr;
+  }
+
+  .planets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-form {
+    padding: 1rem;
+  }
+
+  .form-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .aspect-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Додаткові стилі для нових компонентів */
+
+/* Відображення натальної карти */
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sign-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.sign-card h4 {
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.zodiac-sign.large {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.zodiac-symbol.large {
+  font-size: 2rem;
+}
+
+.element {
+  color: #4a5568;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.description {
+  color: #718096;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.house-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.house-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.house-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.house-sign {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.house-meaning {
+  color: #718096;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.interpretation {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.interpretation-summary,
+.recommendations,
+.daily-horoscope {
+  margin-bottom: 1.5rem;
+}
+
+.interpretation h4 {
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendations li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.recommendations li:before {
+  content: "✨ ";
+  margin-right: 0.5rem;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Швидке визначення знаку */
+.lookup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.lookup-form {
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  background: #f7fafc;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.zodiac-result {
+  margin: 2rem 0;
+}
+
+.result-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.zodiac-display {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.zodiac-info {
+  margin-bottom: 2rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.info-row .label {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.info-row .value {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.all-signs-info {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e2e8f0;
+}
+
+.signs-grid-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.sign-overview-card {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.sign-overview-card:hover {
+  transform: translateY(-2px);
+}
+
+.sign-symbol-small {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sign-name-small {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.sign-element-small {
+  color: #4a5568;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.sign-period-small {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+/* Сумісність знаків */
+.compatibility-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.compatibility-form {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  background: #f7fafc;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.signs-selection {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+.compatibility-vs {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 0.75rem;
+}
+
+.compatibility-result {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.signs-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.compatibility-heart {
+  font-size: 2rem;
+}
+
+.compatibility-score {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.score-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.score-inner {
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-percentage {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.compatibility-description {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.compatibility-details {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.detail-card {
+  background: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.detail-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.detail-bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.detail-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.compatibility-matrix {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e2e8f0;
+}
+
+.matrix-grid {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.matrix-header,
+.matrix-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.matrix-cell {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+}
+
+.matrix-cell.header {
+  background: #f7fafc;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.matrix-cell.empty {
+  background: #f7fafc;
+}
+
+.matrix-cell.compatibility {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.matrix-legend {
+  text-align: center;
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Збережені карти */
+.saved-charts.loading,
+.saved-charts.error,
+.saved-charts.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-spinner-large {
+  text-align: center;
+}
+
+.loading-spinner-large .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.error-state,
+.empty-state {
+  text-align: center;
+  color: #718096;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.charts-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.chart-card-header {
+  background: #667eea;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-date {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.chart-time {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.chart-card-body {
+  padding: 1.5rem;
+}
+
+.chart-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.location-icon {
+  font-size: 1.1rem;
+}
+
+.chart-preview {
+  margin-bottom: 1rem;
+}
+
+.main-signs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.preview-sign {
+  text-align: center;
+}
+
+.sign-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zodiac-sign.mini {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.zodiac-sign.mini .zodiac-symbol {
+  font-size: 1rem;
+}
+
+.zodiac-sign.mini .zodiac-name {
+  font-size: 0.8rem;
+}
+
+.planets-preview {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.planet-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+.planet-preview .planet-symbol {
+  font-size: 1rem;
+}
+
+.chart-card-footer {
+  padding: 1rem 1.5rem;
+  background: #f7fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-created {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  min-height: auto;
+}
+
+.charts-actions {
+  text-align: center;
+}
+
+/* Адаптивність для нових компонентів */
+@media (max-width: 768px) {
+  .signs-selection {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .compatibility-vs {
+    order: -1;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .signs-display {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-signs {
+    grid-template-columns: 1fr;
+  }
+
+  .matrix-header,
+  .matrix-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .signs-grid-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

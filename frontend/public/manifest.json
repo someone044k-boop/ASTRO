@@ -1,0 +1,53 @@
+{
+  "short_name": "Школа навчання",
+  "name": "Онлайн школа навчання - Астрологія та езотерика",
+  "description": "Професійна онлайн школа з курсами астрології, езотерики та духовного розвитку",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#8B4513",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["education", "lifestyle"],
+  "lang": "uk",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Мої курси",
+      "short_name": "Курси",
+      "description": "Переглянути мої курси",
+      "url": "/profile/my-courses",
+      "icons": [{ "src": "images/courses-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Астрологічний калькулятор",
+      "short_name": "Астро",
+      "description": "Розрахувати натальну карту",
+      "url": "/astro",
+      "icons": [{ "src": "images/astro-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Консультації",
+      "short_name": "Консультації",
+      "description": "Записатися на консультацію",
+      "url": "/consultations",
+      "icons": [{ "src": "images/consultation-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

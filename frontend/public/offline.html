@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Офлайн - Онлайн школа навчання</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 500px;
+            padding: 2rem;
+        }
+        
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .retry-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .retry-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .features {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .feature {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📡</div>
+        <h1>Ви офлайн</h1>
+        <p>
+            Схоже, що у вас немає підключення до інтернету. 
+            Не хвилюйтеся - деякі функції все ще доступні!
+        </p>
+        
+        <div class="features">
+            <div class="feature">✓ Перегляд збережених курсів</div>
+            <div class="feature">✓ Читання кешованого контенту</div>
+            <div class="feature">✓ Робота з астрологічним калькулятором</div>
+        </div>
+        
+        <button class="retry-btn" onclick="window.location.reload()">
+            Спробувати знову
+        </button>
+    </div>
+    
+    <script>
+        // Автоматична перевірка підключення
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+        
+        // Показуємо статус підключення
+        if (navigator.onLine) {
+            document.querySelector('p').textContent = 'Перевіряємо підключення...';
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

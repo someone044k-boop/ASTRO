@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Основні сторінки
+Allow: /
+Allow: /base-knowledge/
+Allow: /courses/
+Allow: /consultations
+Allow: /astro
+Allow: /shop
+
+# Заборонені сторінки
+Disallow: /admin/
+Disallow: /api/
+Disallow: /profile/
+Disallow: /payment/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Час затримки для ботів
+Crawl-delay: 1

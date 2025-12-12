@@ -1,0 +1,140 @@
+.social-block {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.social-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-layout-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.social-layout-vertical {
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-layout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background-color: white;
+  border: 2px solid var(--social-color, #333);
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--social-color, #333);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.social-link:hover {
+  background-color: var(--social-color, #333);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.social-label {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+/* Розміри іконок */
+.social-size-small .social-icon {
+  font-size: 16px;
+}
+
+.social-size-small .social-label {
+  font-size: 12px;
+}
+
+.social-size-small .social-link {
+  padding: 8px 12px;
+}
+
+.social-size-medium .social-icon {
+  font-size: 20px;
+}
+
+.social-size-medium .social-label {
+  font-size: 14px;
+}
+
+.social-size-large .social-icon {
+  font-size: 24px;
+}
+
+.social-size-large .social-label {
+  font-size: 16px;
+}
+
+.social-size-large .social-link {
+  padding: 12px 18px;
+}
+
+.social-block-error {
+  padding: 20px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+  text-align: center;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .social-block {
+    margin: 15px 0;
+    padding: 15px;
+  }
+  
+  .social-links {
+    gap: 10px;
+  }
+  
+  .social-layout-horizontal {
+    flex-direction: column;
+  }
+  
+  .social-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-link {
+    padding: 8px 12px;
+  }
+  
+  .social-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
